@@ -1,0 +1,107 @@
+<div class="home">
+  <div class="header">
+    <h1 id="little">{{ "RoomsPage.TITLE" | translate }}</h1>
+    <br />
+    <h1 id="big">{{ "RoomsPage.TITlE_BIG" | translate }}</h1>
+  </div>
+
+  <div class="rooms" *ngIf="dataLoaded; else elseBlock">
+    <div
+      class="room"
+      *ngFor="let room of rooms; let i = index; let last = last"
+    >
+      <mat-card class="imgCard {{ themeService.storedTheme$() }}">
+        <img id="ohoooimg" mat-card-image src [src]="room.path" />
+      </mat-card>
+      <mat-card class="textCard {{ themeService.storedTheme$() }}">
+        <div class="textContent">
+          <div>
+            <h1 class="roomTitle {{ themeService.storedTheme$() }}">{{ room.name }}</h1>
+          </div>
+          <div>
+            <a
+              [routerLink]="['/rooms/reservate']"
+              (click)="setSelectedRoom(room)"
+            >
+              <button id="link">
+                <mat-icon class="add_button {{ themeService.storedTheme$() }}"
+                  >edit_calendar</mat-icon
+                >
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="dayName">
+          <div class="todayy">
+            <h2 class="{{ themeService.storedTheme$() }}">
+              {{ "RoomsPage.CARD_HEUTE" | translate }}
+            </h2>
+          </div>
+          <div class="tomorrow">
+            <h2 class="{{ themeService.storedTheme$() }}">
+              {{ "RoomsPage.CARD_TOMMOROW" | translate }}
+            </h2>
+          </div>
+        </div>
+        <div class="availability">
+          <div class="chartWrapper {{ themeService.storedTheme$() }}">
+            <div class="background">
+              <div
+                class="places {{ themeService.storedTheme$() }}"
+                *ngFor="let amount of chartLines"
+              ></div>
+            </div>
+            <div class="chart">
+              <div
+                matTooltip="{{ value }}"
+                matTooltipPosition="left"
+                *ngFor="let value of dataToday[i]"
+                class="bar"
+                [style.height.px]="value * calculateBarHeight(room)"
+                [ngStyle]="getBarStyle(value, room)"
+              ></div>
+            </div>
+          </div>
+          <div class="chartWrapper {{ themeService.storedTheme$() }}">
+            <div class="background">
+              <div
+                class="places {{ themeService.storedTheme$() }}"
+                *ngFor="let amount of chartLines"
+              ></div>
+            </div>
+
+            <div class="chart">
+              <div
+                matTooltip="{{ value }}"
+                matTooltipPosition="left"
+                *ngFor="let value of dataTomorrow[i]"
+                class="bar"
+                [style.height.px]="value * calculateBarHeight(room)"
+                [ngStyle]="getBarStyle(value, room)"
+              ></div>
+            </div>
+          </div>
+          <div class="timeContainer">
+            <div class="timeWrapper">
+              <div class="time" *ngFor="let time of chartTimes">
+                {{ time }}
+              </div>
+            </div>
+            <div class="timeWrapper">
+              <div class="time" *ngFor="let time of chartTimes">
+                {{ time }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div class="loadingSpinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+
+  <div class="placeholder"></div>
+</div>

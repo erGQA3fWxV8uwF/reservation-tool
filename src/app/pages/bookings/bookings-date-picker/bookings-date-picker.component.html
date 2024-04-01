@@ -1,0 +1,47 @@
+<div class="calendar {{ themeService.storedTheme$() }}">
+  <div class="top">
+    <div class="{{ themeService.storedTheme$() }}">
+      <h2 class="actualDate {{ themeService.storedTheme$() }}">
+        {{ currentYear | getSelectedDate: monthIndex: selectedDay }}      </h2>
+    </div>
+    <div>
+      <button class="buttonMonth" (click)="setPreviousMonth()">
+        <mat-icon class="arrows {{ themeService.storedTheme$() }}"
+          >keyboard_arrow_left</mat-icon
+        >
+      </button>
+      <button class="buttonMonth" (click)="setNextMonth()">
+        <mat-icon class="arrows {{ themeService.storedTheme$() }}"
+          >keyboard_arrow_right</mat-icon
+        >
+      </button>
+    </div>
+  </div>
+  <hr class="hr {{ themeService.storedTheme$() }}" />
+  <div>
+    <div class="buttons">
+      <h5>{{ currentMonth[monthIndex] }} {{ currentYear }}</h5>
+    </div>
+    <table>
+      <tr>
+        <th *ngFor="let day of daysOfWeek">{{ day }}</th>
+      </tr>
+      <ng-container *ngFor="let row of allDays | splitIntoRows: currentYear: monthIndex">        <tr>
+          <td
+            *ngFor="let day of row"
+            [ngClass]="[day | dayClass: currentYear: monthIndex: eventData, day | currentDayClass: currentYear: monthIndex]"
+            >
+            <ng-container>
+              <button
+                class="datesButton {{ themeService.storedTheme$() }}"
+                [ngClass]="{ 'disabled-button': !day }"
+              >
+                {{ day }}
+              </button>
+            </ng-container>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+.root
+  // position: relative
+  height: 100%
+  width: 100%
+  overflow: hidden
+
+  .header
+    margin-top: 20px
+    display: flex
+    justify-content: center
+  .footer
+    display: flex
+    justify-content: center
+    gap: 15px
+    margin: 4%
+  .warning
+    display: flex
+    flex-direction: column
+    align-items: center
+    text-align: center
+    margin: 5px
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface
+  border: solid 1px black
+  border-radius: 20px
+  overflow: hidden
+.checkbox
+  display: flex
+  align-items: flex-end
+
+.root.theme-dark
+  background-color: #474743
+  color: white
+.text
+  color: black
+.text.theme-dark
+  color: white
+.qrCode
+  width: 200px
+  margin-bottom: 20px
+.theme-dark
+  color: white
+.unpaid
+  font-size: 48px
+  font-weight: 700

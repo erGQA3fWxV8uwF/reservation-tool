@@ -1,0 +1,80 @@
+<div>
+  <div>
+    <div>
+      <p class="currentMonthName {{ themeService.storedTheme$() }}">{{currentMonthName}}</p>
+      <table>
+        <thead>
+          <tr>
+            <th class="borderStyling {{ themeService.storedTheme$() }}">
+              <button class="button_nextweek" (click)="setPreviousWeek()">
+                <mat-icon class="{{ themeService.storedTheme$() }}">arrow_back_ios</mat-icon>
+              </button>
+            </th>
+            <th
+              class="dates {{ themeService.storedTheme$() }}"
+              (click)="setSelectedDay(date)"
+              [ngClass]="[markDateClass(date)]"
+              *ngFor="let date of weekDates; let i = index"
+            >
+              {{ formattedDates[i] }}
+            </th>
+            <th class="borderStyling {{ themeService.storedTheme$() }}">
+              <button class="button_nextweek" (click)="setNextWeek()">
+                <mat-icon class="{{ themeService.storedTheme$() }}">arrow_forward_ios</mat-icon>
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let hour of tableHours;  index as i" >
+            <td class="hourTableDates {{ themeService.storedTheme$() }}">
+            {{
+              hour.toString().padStart(2, "0") + ":00"
+            }}
+            </td>
+
+
+            <ng-container *ngFor="let day of weekDates" >
+              <td class="tableThemeDark  hour {{ themeService.storedTheme$() }}" [ngClass]="lastRow(i)">
+                <div 
+                (mousedown)="setStartTimeWithTable(hour, quarter,day)" 
+                (mouseup)="setEndTimeWithTable(hour,quarter,day)" 
+                (mouseover)="endTimeHover(hour,quarter)"
+                  class="hour-quarter {{ themeService.storedTheme$() }}"
+                  *ngFor="let quarter of [0, 1, 2, 3]"
+                  [ngClass]="[colorReservedFields(day, hour, quarter)]"
+                  [matTooltipDisabled]="mouseIsHeld === true"
+                  matTooltip="{{
+                    hour.toString().padStart(2, '0') +
+                      ':' +
+                      (quarter * 15).toString().padStart(2, '0')
+                  }}"
+                ></div>
+              </td>
+            </ng-container>
+
+            <td class="borderStyling {{ themeService.storedTheme$() }}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <div class="color-legend">
+        <div class="bluelegend"></div>
+        <p class="legend-text {{ themeService.storedTheme$() }}">{{ "TAKERESERVATION.MEETING_BLUE_LEGEND"| translate}}</p>
+      </div>
+      <div class="color-legend">
+        <div class="yellowlegend"></div>
+        <p class="legend-text {{ themeService.storedTheme$() }}">{{ "TAKERESERVATION.MEETING_YELLOW_LEGEND"| translate}} </p>
+      </div>
+      <div class="color-legend">
+        <div class="purplelegend"></div>
+        <p class="legend-text {{ themeService.storedTheme$() }}">{{ "TAKERESERVATION.MEETING_PURPLE_LEGEND"| translate}}</p>
+      </div>
+      <div class="color-legend">
+        <div class="redlegend"></div>
+        <p class="legend-text {{ themeService.storedTheme$() }}">{{ "TAKERESERVATION.MEETING_RED_LEGEND"| translate}}</p>
+      </div>
+    </div>
+  </div>
+</div>

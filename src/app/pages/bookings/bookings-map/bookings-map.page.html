@@ -1,0 +1,24 @@
+<div class="header">
+  <h1>{{ "MYBOOKINGS.BOOKED_PLACES" | translate }}</h1>
+</div>
+<div class="root">
+  <div class="buttonWrapper">
+    <button class="button  {{ themeService.storedTheme$() }}" mat-icon-button routerLink="/myBookings">
+    <mat-icon class=" {{ themeService.storedTheme$() }}">arrow_back</mat-icon>
+</button>
+  </div>
+  <div class="desks-container">
+    <div class="time">
+      <h1 class="{{ themeService.storedTheme$() }}">{{ getDayOfWeek(this.viewDate) }}</h1>
+    </div>
+    <div class="wrapper">
+      <img src="{{ mapSrc }}" alt="map" (load)="getBookedDesk()" />
+      <div
+        class="desk"
+        *ngFor="let div of this.marker; let i = index"
+        [style.left.px]="div.x"
+        [style.top.px]="div.y"
+      ></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="root {{ themeService.storedTheme$() }}" [ngClass]="meetingStyling()">
+  <div class="timePickerWrapper">
+    <div class="timeInput" [ngClass]="meetingStyling()">
+      <div class="start">
+        <input
+          name="hour-start"
+          class="timePickers {{ themeService.storedTheme$() }}"
+          type="number"
+          min="0"
+          max="24"
+          required
+          maxlength="2"
+          [(ngModel)]="startHour"
+          (keydown)="numberOnly($event)"
+          (input)="validateHourST()"
+        />
+        <ng-container *ngIf="quartersEnabled">
+          <span class="timePoints {{ themeService.storedTheme$() }}">:</span>
+          <input
+            class="timePickers {{ themeService.storedTheme$() }}"
+            type="number"
+            placeholder="00"
+            min="-15"
+            max="60"
+            step="15"
+            [(ngModel)]="startMinute"
+            (keydown)="numberOnly($event)"
+            (input)="validateMinuteST()"
+          />
+        </ng-container>
+      </div>
+      <span
+        class="timePoints hypen {{ themeService.storedTheme$() }}"
+        [ngClass]="meetingStyling()"
+        >-</span
+      >
+      <div class="start">
+        <input
+          class="timePickers {{ themeService.storedTheme$() }}"
+          type="number"
+          min="1"
+          max="24"
+          maxlength="2"
+          [(ngModel)]="endHour"
+          (keydown)="numberOnly($event)"
+          (input)="validateHour()"
+        />
+
+        <ng-container *ngIf="quartersEnabled">
+          <span class="timePoints {{ themeService.storedTheme$() }}">:</span>
+          <input
+            class="timePickers {{ themeService.storedTheme$() }}"
+            [placeholder]="00"
+            type="number"
+            maxlength="2"
+            min="-15"
+            max="60"
+            step="15"
+            [(ngModel)]="endMinute"
+            (keydown)="numberOnly($event)"
+            (input)="validateMinute()"
+          />
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

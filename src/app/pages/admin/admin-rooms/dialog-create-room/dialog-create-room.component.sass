@@ -1,0 +1,328 @@
+.root
+  position: relative
+  height: 100%
+  width: 100%
+  background-color: #f3f3f3
+  .header
+    padding-top: 20px
+    display: flex
+    justify-content: center
+  .forms,.form
+    display: flex
+    justify-content: space-around
+    flex-direction: row
+    margin-top: 2%
+    width: 100%
+    .inputField
+      width: 33%
+    .button
+      width: 20%
+
+  .footer
+    display: flex
+    justify-content: space-around
+    margin-top: 5%
+
+.rooms
+  display: flex
+  flex-direction: column-reverse
+  align-content: center
+  flex-wrap: wrap
+.room
+  display: flex
+  height: auto
+  flex-direction: row-reverse
+  flex-wrap: wrap
+  align-content: stretch
+  justify-content: center
+  align-items: center
+  margin-bottom: 50px
+  width: 85%
+  &:last-child
+    margin-top: 50px
+  .imgCard
+    height: 183px
+    width: 60%
+    border-radius: 0px 15px 15px 0px
+    min-height: 150px
+    min-width: 250px
+    cursor: pointer
+    span
+      position: absolute
+      top: 10%
+      left: 50%
+      transform: translate(-50%, -50%)
+      cursor: default
+
+#ohoooimg
+  width: 100%
+  height: 100%
+  object-fit: cover
+.textCard
+  background-color: #ffff
+  height: auto
+  width: 40%
+  min-width: 250px
+  display: flex
+  justify-content: space-between
+  padding-left: 5px
+  border-radius: 15px 0px 0px 15px
+
+.textCard.theme-dark
+  background-color: #595954
+  box-shadow: 1.95px 1.95px 2.6px#474743
+  color: #8A70D4
+
+.textContent
+  display: flex
+  justify-content: space-between
+  width: 100%
+  height: 25px
+
+  h1
+    font-family: 'Bungee'
+    font-size: 21px
+  .roomTitle
+      margin-left: 15px
+      margin-top: 10px
+      margin-bottom: 0
+      white-space: normal
+      word-wrap: break-word
+      #link
+        background-color: transparent
+        border: none
+        .add_button
+          margin-top: 10px
+          margin-right: 15px
+          width: 25px
+          border-radius: 40%
+.availability
+  width: 100%
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-evenly
+  align-items: flex-end
+  min-height: 72px
+  padding-top: 10px
+  padding-bottom: 10px
+  .today,
+  .tommorow
+    display: flex
+    align-self: center
+    text-align: center
+    height: 80%
+    width: 33%
+    max-width: 100px
+    color: #8A70D4
+    border: solid 2px #8A70D4
+    border-radius: 7px
+    background-color: rgb(220, 212, 242)
+    margin: 0
+    flex-direction: column
+    flex-wrap: wrap
+    justify-content: space-around
+    h3
+      margin: 0px
+      color: #8A70D4
+      font-size: 150%
+      font-weight: bold
+
+.add_button.theme-dark
+  color: white
+.add_button.theme-dark:hover
+  background-color: #474743
+
+.roomTitle.theme-dark
+  color: white
+
+.textCard.theme-dark
+  background-color: #595954
+  box-shadow: 1.95px 1.95px 2.6px#474743
+  color: #8A70D4
+  border: solid 1px black
+
+.rooms.theme-dark
+  background: #595954
+
+.imgCard:hover
+  background: rgba(47, 47, 47, 0.1)
+
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface
+  border: solid 1px black
+  border-radius: 20px
+  overflow: hidden
+.uploadMap
+  margin-top: 5%
+:ng-deep .theme-dark[_ngcontent-ldb-c124] .mdc-text-field--outlined .mdc-text-field__input
+  padding-left: 10px
+
+#link
+  background-color: transparent
+  border: none
+.button
+  margin-bottom: 20px
+
+.root.theme-dark
+  background-color: rgb(43, 43, 40)
+
+.imgCard.theme-dark
+  background-color: #595954
+.text.theme-dark
+  color: white
+
+.uploadMap.theme-dark
+  color: white
+  background-color: #595954
+.button.theme-dark
+  color: white
+  background-color: #595954
+
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading
+    border-color: black !important
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch
+    border-color: black !important
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing
+    border-color: black !important
+  ::ng-deep .mat-mdc-select-arrow
+    padding-right: 15px
+  ::ng-deep .mdc-text-field--outlined .mdc-text-field__input
+    padding-left: 10px
+
+.theme-dark
+  ::ng-deep .mat-mdc-select-value
+    color: white !important
+  ::ng-deep .mat-mdc-select-arrow
+    color: white
+  ::ng-deep mat-label
+    color: white
+  ::ng-deep .mdc-text-field--outlined .mdc-text-field__input
+    color: white !important
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading
+    border-color: white !important
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch
+    border-color: white !important
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing
+    border-color: white !important
+.chart
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: flex-end
+  height: 100px
+
+.bar
+  width: 100%
+  margin: 0 2px
+  transition: height 0.5s ease-in-out
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  z-index: 10
+  max-height: 100px
+
+.places
+  border-bottom: dashed 1px black
+  transition: height 0.5s ease-in-out
+.places.theme-dark
+  border-bottom: dashed 1px #515151
+
+.background
+  display: flex
+  justify-content: space-evenly
+  flex-direction: column-reverse
+  height: 100px
+  margin-top: -100px
+  z-index: 2
+
+.chartWrapper
+  width: 44%
+  height: 100%
+  z-index: 1
+  display: flex
+  flex-direction: column-reverse
+  border-radius: 7px
+  color: white
+  background-color: #e0dede
+
+.chartWrapper.theme-dark
+  background-color: #7f7f7f
+
+
+.time
+  display: flex
+.timeWrapper
+  width: 44%
+  display: flex
+  justify-content: space-between
+  display: flex
+.timeContainer
+  width: 100%
+  display: flex
+  justify-content: space-evenly
+
+.dayName
+  display: flex
+  width: 100%
+  height: auto
+  margin-bottom: -30px
+.todayy
+  color: white
+  padding-left: 15px
+  width: 50%
+.tomorrow
+  width: 50%
+
+@media (max-width:922px)
+  .chart
+    height: 85px !important
+  .background
+    height: 85px !important
+    margin-top: -85px !important
+  .bar
+    max-height: 85px !important
+  .imgCard
+    border-radius: 15px 15px 0px 0px !important
+    width: 100% !important
+  .textCard
+    border-radius: 0px 0px 15px 15px !important
+    width: 100% !important
+h5
+  margin: 0px
+  color: #8A70D4
+  font-size: 100%
+
+h2
+  color: black
+  font-size: 12px
+h2.theme-dark
+  color: white
+h3
+  margin: 0px
+  color: #8A70D4
+  font-size: 150%
+  font-weight: bold
+
+.h5Top
+  margin-top: 10px
+  margin-left: 10px
+  margin-right: 10px
+.h5Bottom
+  margin-bottom: 10px
+  margin-left: 10px
+  margin-right: 10px
+.h3Top
+  margin-top: 2px
+  margin-bottom: 2px
+  margin-left: 10px
+  margin-right: 10px
+
+@media (max-width:600px)
+  .chart
+    height: 70px
+  .background
+    height: 70px
+    margin-top: -70px
+  .bar
+    max-height: 70px
+
+

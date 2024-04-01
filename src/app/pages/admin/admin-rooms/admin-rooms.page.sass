@@ -1,0 +1,114 @@
+.root
+  min-height: calc(100vh - 200px)
+  display: flex
+  flex-direction: column
+  align-items: center
+.header
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 128px
+  width: 100%
+  position: sticky
+  top: 0px
+  left: 0px
+  background-color: #595955
+  z-index: 10
+h1
+  font-family: 'Bungee'
+  font-size: 32px
+  color: white
+  margin: 0px
+
+
+.icon
+  cursor: pointer
+  background-color: transparent
+  border: none
+  border-radius: 40%
+  margin-right: left
+
+.icon.theme-dark
+  color: white
+
+.icons
+  display: flex
+  padding-top: 2%
+
+.icon:hover
+  background-color: #8b70d459
+  color: #8A70D4
+
+.add_button
+  width: 80%
+  margin-left: 10%
+  padding-top: 1%
+  padding-bottom: 1%
+  display: flex
+  justify-content: center
+  cursor: pointer
+
+.back
+  cursor: pointer
+  transform: scale(1.5)
+
+.buttonWrapper
+  width: 95%
+  height: 50px
+  display: flex
+  align-items: center
+  margin-left: auto
+  margin-right: auto
+.theme-dark
+  color: white
+.list
+  display: block
+  width: 80%
+  overflow-x: auto
+.mat-mdc-table
+  margin-bottom: 20px
+  overflow-x: auto
+.mat-column-buttons
+  text-align: end
+td
+  cursor: pointer
+.mdc-data-table__row:last-child .mdc-data-table__cell
+  border-bottom: solid 1px #4e4e4b
+
+.mat-table
+  width: 100%
+  max-width: 100%
+  display: table
+  border-collapse: collapse
+::ng-deep.mat-mdc-table
+  background-color: #ffff
+::ng-deep.theme-dark
+  .mat-mdc-table
+    background-color: #595955 !important
+  .mdc-data-table__cell
+    color: white
+  .mdc-data-table__header-cell
+    color: white
+  .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix
+    background-color: #2b2b28
+  .mdc-text-field--filled:not(.mdc-text-field--disabled)
+    background-color: #2b2b28
+    border: solid 1px white
+  .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label
+    color: #ffff
+  .cdk-overlay-pane:not(.mat-mdc-select-panel-above) .mdc-menu-surface.mat-mdc-select-panel
+    background-color: #2b2b28
+  .mat-mdc-select-value-text
+    color: #ffff
+  .mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input
+    color: #ffff
+  .mat-mdc-option.mdc-list-item
+    background-color: #2b2b28
+  .mat-mdc-checkbox .mdc-form-field
+    color: white
+  .mat-mdc-checkbox.mat-primary
+    --mdc-checkbox-unselected-icon-color: white
+  .mat-mdc-select-arrow svg
+    color: white
+  #icon
+    color: white

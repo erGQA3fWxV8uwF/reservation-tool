@@ -1,0 +1,170 @@
+<div class="root {{ themeService.storedTheme$() }}">
+  <div class="header">
+    <h1 *ngIf="type == 'edit'" class="text {{ themeService.storedTheme$() }}">
+      {{ "NEWROOM.EDIT_ROOM" | translate }}
+    </h1>
+    <h1 *ngIf="type === 'create'" class="text {{ themeService.storedTheme$() }}">
+      {{ "NEWROOM.CREATE_ROOM" | translate }}
+    </h1>
+  </div>
+  <div class="forms">
+    <form [formGroup]="createRoomForm" class="form">
+      <mat-form-field
+        appearance="outline"
+        class="inputField"
+        [ngClass]="themeService.storedTheme$()"
+      >
+        <mat-label>{{ "NEWROOM.ROOM_NAME" | translate }}</mat-label>
+        <input matInput formControlName="roomName" />
+      </mat-form-field>
+      <mat-form-field
+        appearance="outline"
+        class="inputField"
+        [ngClass]="themeService.storedTheme$()"
+      >
+        <mat-label>{{ "NEWROOM.TYPE" | translate }}</mat-label>
+        <mat-select formControlName="roomType">
+          <mat-option value="reservation">{{
+            "NEWROOM.RESERVATION" | translate
+          }}</mat-option>
+          <mat-option value="meeting">{{
+            "NEWROOM.MEETING" | translate
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <input
+        hidden
+        type="file"
+        accept="image/jpeg, image/png"
+        #RoomPicture
+        (change)="onFileSelected($event)"
+      />
+      <input
+        hidden
+        type="file"
+        accept="image/jpeg, image/png"
+        #RoomMap
+        (change)="selectMap($event)"
+      />
+    </form>
+  </div>
+
+  <div class="rooms">
+    <div class="room">
+      <mat-card class="imgCard {{ themeService.storedTheme$() }}" (click)="RoomPicture.click()">
+        <span class="text {{ themeService.storedTheme$() }}" *ngIf="!imagePreview">{{
+          "NEWROOM.NOIMG" | translate
+        }}</span>
+        <img
+          id="ohoooimg"
+          mat-card-image
+          *ngIf="imagePreview"
+          [src]="imagePreview"
+        />
+      </mat-card>
+      <mat-card class="textCard {{ themeService.storedTheme$() }}">
+        <div class="textContent">
+          <div>
+            <h1 class="roomTitle {{ themeService.storedTheme$() }}">
+              {{ createRoomForm.value.roomName || "NEWROOM.TITLE" | translate }}
+            </h1>
+          </div>
+          <div>
+            <button id="link">
+              <mat-icon class="add_button {{ themeService.storedTheme$() }}"
+                >add_circle_outline</mat-icon
+              >
+            </button>
+          </div>
+        </div>
+        <div class="availability">
+          <div class="chartWrapper {{ themeService.storedTheme$() }}">
+            <div class="background">
+              <div
+                class="places {{ themeService.storedTheme$() }}"
+                *ngFor="let amount of chartLines"
+              ></div>
+            </div>
+            <div class="chart">
+              <div
+                *ngFor="let value of dataToday[0]"
+                class="bar"
+                [style.height.px]="value * calculateBarHeight()"
+                [ngStyle]="value | barStyle"
+              ></div>
+            </div>
+          </div>
+          <div class="chartWrapper {{ themeService.storedTheme$() }}">
+            <div class="background">
+              <div
+                class="places {{ themeService.storedTheme$() }}"
+                *ngFor="let amount of chartLines"
+              ></div>
+            </div>
+
+            <div class="chart">
+              <div
+                *ngFor="let value of dataTomorrow[0]"
+                class="bar"
+                [style.height.px]="value * calculateBarHeight()"
+                [ngStyle]="value | barStyle"
+              ></div>
+            </div>
+          </div>
+          <div class="timeContainer">
+            <div class="timeWrapper">
+              <div class="time" *ngFor="let time of times">
+                {{ time }}
+              </div>
+            </div>
+            <div class="timeWrapper">
+              <div class="time" *ngFor="let time of times">
+                {{ time }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+      <button
+        *ngIf="
+          createRoomForm.value.roomType == 'reservation' ||
+          roomType == 'reservation'
+        "
+        class="uploadMap {{ themeService.storedTheme$() }}"
+        mat-raised-button
+        (click)="RoomMap.click()"
+      >
+        {{ "NEWROOM.UPLOAD" | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="footer">
+    <button class="button {{ themeService.storedTheme$() }}" mat-raised-button mat-dialog-close>
+      {{ "NEWROOM.CANCEL" | translate }}
+    </button>
+    <button
+      *ngIf="type == 'edit'"
+      class="button"
+      type="submit"
+      color="primary"
+      mat-raised-button
+      mat-dialog-close
+      (click)="storeRoomToDb()"
+      [disabled]="!createRoomForm.valid"
+    >
+      {{ "NEWROOM.EDIT" | translate }}
+    </button>
+    <button
+      *ngIf="type == 'create'"
+      class="button"
+      type="submit"
+      color="primary"
+      mat-raised-button
+      mat-dialog-close
+      (click)="storeRoomToDb()"
+      [disabled]="!createRoomForm.valid"
+    >
+      {{ "NEWROOM.CREATE" | translate }}
+    </button>
+  </div>
+</div>

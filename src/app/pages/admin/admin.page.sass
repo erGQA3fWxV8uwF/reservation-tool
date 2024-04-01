@@ -1,0 +1,55 @@
+$--darkFont: white
+$--lightFont: black
+
+.root
+  min-height: calc(100vh - 200px)
+  display: flex
+  justify-content: center
+  height: 100%
+
+.header
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 128px
+  width: 100%
+  position: sticky
+  top: 0px
+  left: 0px
+  background-color: #595955
+  z-index: 10
+h1
+  font-family: 'Bungee'
+  font-size: 32px
+  color: white
+  margin: 0px
+.wrapper
+  width: 80%
+  height: 100%
+  display: flex
+  flex-direction: column
+
+    /* Stil für die Buttons */
+.buttons
+  margin: 25px
+  padding: 10px 20px
+  font-size: 18px
+  background-color: #ffff
+  color: black
+  border: none
+  cursor: pointer
+  display: flex
+  align-items: center
+  height: 70px
+  &:first-child
+    margin-top: 50px
+
+    /* Stil für die Icons innerhalb der Buttons */
+  & mat-icon
+    margin-left: 5px
+    height: auto
+    width: auto
+    font-size: 32px
+.buttons.theme-dark
+  background-color: #595955
+  color: white

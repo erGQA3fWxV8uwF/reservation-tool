@@ -1,0 +1,113 @@
+.root
+  min-height: calc(100vh - 200px)
+.mat-mdc-table
+  margin-bottom: 20px
+  width: 100%
+  max-width: 100%
+  display: table
+  border-collapse: collapse
+.mat-table
+  width: 100%
+  max-width: 100%
+  display: table
+  border-collapse: collapse
+.list
+  margin-left: auto
+  margin-right: auto
+  display: block
+  width: 80%
+  overflow-x: auto
+@media (max-width: 600px)
+  .list
+    width: 100%
+
+::ng-deep.mat-mdc-table
+  background-color: #ffff
+::ng-deep.theme-dark
+  .mat-mdc-table
+    background-color: #595955 !important
+  .mdc-data-table__cell
+    color: white
+  .mdc-data-table__header-cell
+    color: white
+.header
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 128px
+  width: 100%
+  position: sticky
+  top: 0px
+  left: 0px
+  background-color: #595955
+  z-index: 10
+.buttonWrapper2
+  margin-top: 20px
+  width: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+
+h1
+  font-family: 'Bungee'
+  font-size: 32px
+  color: white
+  margin: 0px
+h2
+  margin: 5px
+  padding: 0 10px
+  border-bottom: solid 1px
+table
+  border-collapse: collapse
+  width: 100%
+
+.profilPicture
+  border-radius: 50%
+  width: 50px
+  height: 50px
+
+.done
+  color: #00c851
+.warning
+  color: #ffbb33
+.expired
+  color: #ff4444
+.back
+  cursor: pointer
+  transform: scale(1.5)
+.buttonWrapper
+  width: 95%
+  height: 50px
+  display: flex
+  align-items: center
+  margin-left: auto
+  margin-right: auto
+
+th, td
+  padding: 8px
+  text-align: left
+  border-bottom: 1px solid #DDD
+
+// @media (max-width: 768px)
+//  ngx-charts-bar-vertical
+//   width: 200px
+
+  table
+    font-size: 60%
+
+  th, td
+    padding: 4px
+  .payButton
+    width: 1.2vw
+    font-size: 3vw
+    color: black
+  button.theme-dark
+    color: white !important
+    background-color: red !important
+  .profilPicture
+    border-radius: 50%
+    width: 25px
+    height: 25px
+// ::ng-deep .ngx-charts
+//   width: 70vw
+//   height: auto

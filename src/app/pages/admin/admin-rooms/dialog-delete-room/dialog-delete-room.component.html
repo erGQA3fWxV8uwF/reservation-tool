@@ -1,0 +1,40 @@
+<div class="root {{ themeService.storedTheme$() }}">
+  <div class="header">
+    <h1 class="text {{ themeService.storedTheme$() }}">
+      {{ "MANAGEROOMS.DELETE" | translate }} : {{ roomName }}?
+    </h1>
+  </div>
+  <div class="warning">
+    <h2 class="text {{ themeService.storedTheme$() }}">
+      {{ "MANAGEROOMS.DELETE_TITLE" | translate }}
+    </h2>
+    <h2 class="text {{ themeService.storedTheme$() }}">
+      {{ "MANAGEROOMS.DELETE_CHECKBOX" | translate }}
+    </h2>
+    <div class="checkbox">
+      <mat-checkbox
+        class="example-margin"
+        color="warn"
+        [(ngModel)]="isCheckboxChecked"
+      >
+      </mat-checkbox>
+      <p class="text {{ themeService.storedTheme$() }}">
+        {{ "MANAGEROOMS.DELETE_LABEL" | translate }}
+      </p>
+    </div>
+  </div>
+  <div class="footer">
+    <button mat-raised-button mat-dialog-close>
+      {{ "MANAGEROOMS.CANCEL" | translate }}
+    </button>
+    <button
+      mat-dialog-close
+      mat-raised-button
+      color="warn"
+      [disabled]="!isCheckboxChecked"
+      (click)="deleteRoomFromDb()"
+    >
+      {{ "MANAGEROOMS.DELETE" | translate }}
+    </button>
+  </div>
+</div>

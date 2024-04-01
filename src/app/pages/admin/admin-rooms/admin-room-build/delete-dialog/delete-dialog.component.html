@@ -1,0 +1,22 @@
+<div class="root {{ themeService.storedTheme$() }}">
+  <div class="warning">
+    <h3 class="{{ themeService.storedTheme$() }}">{{"MAP.DELETE_TITLE" |translate}}</h3>
+    <mat-checkbox color="warn" [(ngModel)]="isCheckboxChecked">
+      <p class="{{ themeService.storedTheme$() }}">{{"MAP.DELETE_SUBMITT" |translate}}</p>
+    </mat-checkbox>
+  </div>
+  <div class="footer">
+        <button mat-raised-button mat-dialog-close> {{"MANAGEROOMS.CANCEL" |translate}}</button>
+    <button
+      class="{{ themeService.storedTheme$() }}"
+      mat-dialog-close
+      mat-raised-button
+      color="warn"
+      [disabled]="!isCheckboxChecked"
+      (click)="deleteDesk()"
+    >
+      {{"MANAGEROOMS.DELETE" |translate}}
+    </button>
+
+  </div>
+</div>

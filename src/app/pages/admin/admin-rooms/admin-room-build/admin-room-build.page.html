@@ -1,0 +1,63 @@
+<div class="root">
+  <div class="header">
+    <h1>MAP</h1>
+  </div>
+
+  <div class="sideMenuButtons">
+    <button class="back" routerLink="/admin/rooms">
+      <mat-icon class="{{ themeService.storedTheme$() }}">arrow_back</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon class="{{ themeService.storedTheme$() }}">more_vert</mat-icon>
+    </button>
+  </div>
+
+  <mat-menu #menu="matMenu">
+    <div class="sidebar">
+      <button mat-raised-button (click)="openHelpDialog()" class="buttons">
+        Help <mat-icon>question_mark</mat-icon>
+      </button>
+
+      <button
+        class="buttons"
+        mat-raised-button
+        color="primary"
+        (click)="addDesksToDb()"
+      >
+        Save
+      </button>
+    </div>
+  </mat-menu>
+
+  <div class="desks-container">
+    <div class="image-wrapper">
+      <div
+        *ngFor="let div of newMarker; let i = index"
+        class="marker"
+        [style.left.px]="div.x"
+        [style.top.px]="div.y"
+      >
+        <button mat-icon-button (click)="deleteNewMarker(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <div
+        class="bookedMarker"
+        *ngFor="let div of desks; let i = index"
+        [style.left.px]="div.x"
+        [style.top.px]="div.y"
+      >
+        <button mat-icon-button (click)="deleteMarker(div.uuid)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <img
+        #map
+        (load)="onImageLoad()"
+        [src]="mapSrc"
+        alt="Room map"
+        (click)="generateNewMarker($event)"
+      />
+    </div>
+  </div>
+</div>

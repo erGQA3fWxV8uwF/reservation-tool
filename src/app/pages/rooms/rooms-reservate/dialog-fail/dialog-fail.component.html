@@ -1,0 +1,8 @@
+<div class="dialog {{ themeService.storedTheme$() }}">
+  <button id="closeButton" mat-button mat-dialog-close>
+    <mat-icon class="{{ themeService.storedTheme$() }}">close</mat-icon>
+  </button>
+  <h1 class="{{ themeService.storedTheme$() }}">
+    {{ errorMessage  }}
+  </h1>
+</div>

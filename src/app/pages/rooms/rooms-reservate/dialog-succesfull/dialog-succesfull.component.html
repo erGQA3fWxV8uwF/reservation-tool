@@ -1,0 +1,20 @@
+<div class="dialog {{ themeService.storedTheme$() }}">
+  <button id="closeButton" mat-button mat-dialog-close>
+    <mat-icon class="{{ themeService.storedTheme$() }}">close</mat-icon>
+  </button>
+  <div>
+    <h1 class="{{ themeService.storedTheme$() }}">
+      {{ "TAKERESERVATION.SUCCESFULLDIALOG" | translate }}
+    </h1>
+  </div>
+
+  <div>
+    <h2 class="{{ themeService.storedTheme$() }}">
+      {{ "TAKERESERVATION.SUCCESFULLDIALOGTEXT" | translate }}
+      <a (click)="closeDialog()" routerLink="myBookings">{{
+        "TAKERESERVATION.SUCCESFULLDIALOGTEXT2" | translate
+      }}</a> 
+      {{"TAKERESERVATION.SUCCESFULLDIALOGTEXT3" | translate}}
+    </h2>
+  </div>
+</div>

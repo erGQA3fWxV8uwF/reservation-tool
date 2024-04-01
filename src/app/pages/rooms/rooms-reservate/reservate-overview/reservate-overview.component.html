@@ -1,0 +1,14 @@
+<div class="home">
+  <div class="header">
+    <h1>{{ "TAKERESERVATION.BOOKING" | translate }}</h1>
+  </div>
+
+  <div class="rooms">
+    <div *ngFor="let room of rooms">
+      <a [routerLink]="['/takeReservation']" (click)="setSelectedRoom(room)">
+        <p>{{ room.name }}</p>
+      </a>
+      <mat-divider></mat-divider>
+    </div>
+  </div>
+</div>

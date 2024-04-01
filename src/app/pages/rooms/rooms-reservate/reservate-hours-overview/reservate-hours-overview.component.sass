@@ -1,0 +1,140 @@
+
+.hourtable
+  width: 100%
+
+table
+  border-collapse: collapse
+  width: 100%
+
+  th
+    border: 1px solid black
+    padding: 9px
+    height: 50px
+    cursor: pointer
+
+  td
+    border: 1px solid black
+    padding: 0px
+    height: 50px
+.hour-quarter
+  height: 25%
+
+  &:not(:last-child)
+    border-bottom: 1px dotted black
+.hour-quarter.theme-dark
+  &:not(:last-child)
+    border-bottom: 1px dotted gray
+
+
+.reserved
+  background: rgba(165, 222, 222)
+  z-index: 2
+.currentSelected
+  background: rgba(237, 123, 227)
+.red
+  background: rgba(238, 105, 105)
+
+
+
+.reserved.theme-dark
+  background: #7cc0c0
+  z-index: 2
+.currentSelected.theme-dark
+  background: #b85eb0
+.red.theme-dark
+  background: #c45959
+
+
+.dates:hover
+  background: rgba(13, 201, 203, .3) !important
+.dates.theme-dark
+  color: white
+  border-color: white
+.button_nextweek
+  height: 50px
+  width: 50px
+  background-color: transparent
+  border: none
+  cursor: pointer
+
+.borderStyling
+  border: none !important
+.borderStyling.theme-dark
+  color: white
+.hourTableDates
+  display: flex
+  justify-content: flex-end
+  margin-top: -10px
+  border: none !important
+  margin-right: 16px
+.hourTableDates.theme-dark
+  color: white
+.tableThemeDark.theme-dark
+  color: white
+  border-color: white
+.theme-dark
+  color: white
+.legend
+  width: 95%
+  margin-left: 2.5%
+  display: flex
+  justify-content: space-around
+  margin-top: 10px
+
+@mixin legendStyle($color) 
+  background: $color
+  height: 10px
+  width: 10px
+  margin-top: 5px
+
+.bluelegend 
+  @include legendStyle(rgba(13, 201, 203))
+
+.yellowlegend 
+  @include legendStyle(rgba(228, 171, 26))
+
+
+.redlegend 
+  @include legendStyle(rgba(244, 5, 5))
+
+.purplelegend 
+  @include legendStyle(#f405d4)
+
+
+
+.sameUser
+  background: rgb(228, 172,26)
+.disabled
+  background: rgb(207, 207, 207)
+  pointer-events: none
+
+.disabled-dark
+  background: rgb(65 65 65)
+
+
+
+
+tbody
+  user-select: none
+
+tr:nth-child(20) 
+  display: none
+
+.hideLastRow
+  display: none
+
+.color-legend
+  display: flex
+
+.legend-text
+  margin-left:10px
+  
+.currentMonthName
+  display: flex
+  justify-content: space-around
+  font-size: 24px
+  margin-bottom: 48px
+
+@media (max-width:500px) 
+  .legend-text
+    margin-left:2px

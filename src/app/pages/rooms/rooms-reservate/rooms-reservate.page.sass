@@ -1,0 +1,397 @@
+.home
+  height: 100%
+  display: flex
+  flex-direction: column-reverse
+.placesTitle
+  order: 1
+  align-self: flex-start
+  width: 85%
+  margin-left: auto
+  margin-right: auto
+.placesTitle.theme-dark
+  color: white
+
+.header
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 128px
+  width: 100%
+  background-color: #0DC9CB
+  z-index: 500
+  position: sticky
+  top: 0px
+  left: 0px
+h1
+  font-family: 'Bungee'
+  font-size: 32px
+  color: white
+  margin: 0px
+
+.reservations
+  height: 100%
+  display: flex
+
+  // max-width: 100%
+  // margin-top: 30px
+  width: 100%
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+
+.datepicker
+  width: 100%
+  height: auto
+  margin-bottom: 5%
+
+.hourpicker
+  margin-top: 5%
+  width: 85%
+  height: auto
+
+.inputs
+  margin-top: 50px
+  width: 85%
+  height: 160px
+  display: flex
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  border: solid 1px black
+  border-radius: 8px
+.inputs.theme-dark
+  background-color: #474743
+// .places
+//   width: 85%
+//   display: flex
+//   justify-content: center
+//   text-align: center
+
+input
+  width: 100%
+
+hr
+  width: 100%
+  height: 1px
+
+  border-top: solid 2px black
+
+h2
+  margin: 0px
+
+#freeplaces
+  color: #0DC9CB
+
+.matFormField
+  width: 300px
+#tooltip
+  position: absolute
+  right: 8%
+  color: #0dc8cb82
+
+#bookButton
+  background-color: #0DC9CB
+  width: 200px
+
+.book
+  margin-top: 50px
+  margin-bottom: 50px
+  display: flex
+  justify-content: center
+  align-items: flex-start
+  width: 100%
+  height: auto
+  z-index: 1
+
+.book-content-wrapper
+  display: flex
+  flex-direction: column
+  text-align: center
+  justify-content: center
+  align-items: center
+
+.cant-book-text
+  color: red
+
+.recurring
+  width: 100%
+  margin-left: 1%
+  background-color: transparent
+  box-shadow: none
+
+::ng-deep .mat-expansion-panel
+  margin-left: 1%
+
+.mat-expansion-panel-header
+  padding: 0px
+  background-color: transparent
+  box-shadow: none
+  border: none
+
+.mat-expansion-panel:not([class*=mat-elevation-z])
+  box-shadow: none
+  width: 98%
+::ng-deep .mat-expansion-panel-body
+  padding-left: 1% !important
+  padding-right: 1% !important
+  width: 98% !important
+
+.mat-expansion-panel-header:not([aria-disabled=true])
+  max-width: 150px
+  min-width: 120px
+
+input:focus
+  background-color: #0dc8cb51
+
+// #till
+//   position: relative
+//   bottom: -20px
+//   left: 10px
+//   color: grey
+
+.timeline
+  display: flex
+  align-items: flex-start
+  width: 100%
+  border: none
+
+  &-item
+    width: calc(100% / 10)
+    height: 75px
+    border: 1px solid grey
+    margin-right: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    font-weight: bolder
+    flex-direction: column
+    color: white
+
+    &:first-child
+      border-top-left-radius: 8px
+      border-bottom-left-radius: 8px
+
+    &:last-child
+      border-top-right-radius: 8px
+      border-bottom-right-radius: 8px
+
+  &-hour
+    // position: relative
+    top: 0
+    text-decoration: underline
+
+    @media screen and (max-width: 768px)
+      display: none
+
+  &-hourMobile
+    display: none
+    color: white
+
+    @media screen and (max-width: 768px)
+      display: flex
+      // position: relative
+      top: 0
+      text-decoration: underline
+
+  &-capacityWrapper
+    display: flex
+    align-items: flex-end
+    justify-content: center
+    flex-direction: row
+    width: 100%
+
+    &-capacity
+      font-size: 2em
+
+      @media screen and (max-width: 768px)
+        font-size: 1.5em
+        flex-direction: column
+        text-align: center
+
+    &-maxCapacity
+      z-index: 20
+      text-align: end
+      height: 100%
+      right: 0
+      bottom: 0
+      display: inline-block
+      align-self: flex-end
+
+    @media screen and (max-width: 768px)
+      font-size: 0.7em
+
+.pageTitle.theme-dark
+  color: white
+
+.desks-picked
+  margin-top: 8px
+  text-align: end
+
+.theme-dark
+  color: white
+
+.divider.theme-dark
+  color: white
+  border-top: solid 2px white
+
+.button_back
+  cursor: pointer
+  transform: scale(1.5)
+  // margin-top: 3%
+  // margin-top: 3%
+  // margin-left: 4%
+  // margin-right: autop
+.buttonWrapper
+  width: 95%
+  height: 50px
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+
+.button_back_meeting
+  cursor: pointer
+  transform: scale(1.5)
+.button_back.theme-dark
+  color: white
+
+.edit-buttons
+  display: flex
+  gap: 8px
+  flex-direction: row
+
+  &-cancel
+    background-color: white
+
+.availability
+  // position: absolute
+  // bottom: 0px
+  width: 100%
+  min-height: 72px
+  padding-top: 10px
+  padding-bottom: 10px
+
+.chart
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: flex-end
+  height: 100px
+
+.bar
+  width: 100%
+  margin: 0 10px
+  transition: height 0.5s ease-in-out
+  // display: flex
+  flex-direction: column-reverse
+  justify-content: center
+  align-items: center
+  flex-wrap: wrap
+  z-index: 10
+  max-height: 140px
+  border-radius: 2px 2px 0px 0px
+  &:first-child
+    margin-left: 20px
+  &:last-child
+    margin-right: 20px
+
+.places
+  border-bottom: dashed 1px black
+  transition: height 0.5s ease-in-out
+.places.theme-dark
+  border-bottom: dashed 1px black
+
+.background
+  display: flex
+  justify-content: space-evenly
+  flex-direction: column-reverse
+  height: 140px
+  margin-top: -140px
+  z-index: 2
+.placesNumbers
+  display: flex
+  justify-content: center
+  text-align: center
+  vertical-align: middle
+  height: 100%
+  align-items: center
+.placesNumbers.theme-dark
+  color: white
+
+.chartWrapper
+  width: 85%
+  height: 140px
+  z-index: 1
+  display: flex
+  flex-direction: column-reverse
+  border-radius: 7px
+  color: white
+  background-color: #ffffff
+  margin-right: auto
+  margin-left: auto
+.chartWrapper.theme-dark
+  background-color: #474743
+
+.time
+  display: flex
+  width: 72.22px
+  margin: 0 10px
+  text-align: center
+  justify-content: center
+  &:first-child
+    margin-left: 20px
+  &:last-child
+    margin-right: 20px
+.time.theme-dark
+  color: white
+.timeWrapper
+  width: 85%
+  display: flex
+  // justify-content: space-between
+  display: flex
+  margin-top: 8px
+.timeContainer
+  width: 100%
+  display: flex
+  justify-content: space-evenly
+.numberAbove
+  .placesNumbers
+    position: relative
+    top: -20px
+    width: 100%
+    display: block
+    text-align: center
+    height: auto
+
+@media (max-width:800px)
+  .chart
+    height: 85px
+  .background
+    height: 85px
+    margin-top: -85px
+  .bar
+    max-height: 85px
+  .chartWrapper
+    height: 85px
+
+@media (max-width:600px)
+  .chart
+    height: 70px
+  .background
+    height: 70px
+    margin-top: -70px
+  .bar
+    max-height: 70px
+    margin: 0 5px
+    &:first-child
+      margin-left: 10px
+    &:last-child
+      margin-right: 10px
+  .chartWrapper
+    height: 70px
+  .time
+    margin: 0 5px
+    &:first-child
+      margin-left: 10px
+    &:last-child
+      margin-right: 10px

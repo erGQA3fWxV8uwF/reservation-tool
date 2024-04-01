@@ -1,0 +1,36 @@
+<div class="root {{ themeService.storedTheme$() }}">
+  <div class="header">
+    <h1 class="text {{ themeService.storedTheme$() }}">
+      {{ "COFFEELIST.DIALOG-PAY_TITLE" | translate }}
+    </h1>
+  </div>
+  <div class="warning">
+    <img src="../../../../assets/img/QrCode.JPG" alt="" class="qrCode" />
+    <div>
+      <h2 class=" {{ themeService.storedTheme$() }}">
+        {{ "COFFEELIST.DIALOG-PAY_UNPAID" | translate }}
+      </h2>
+      <h2 class=" unpaid {{ themeService.storedTheme$() }}">{{ unpaidCoffee.length }}</h2>
+    </div>
+    <h2 class="text {{ themeService.storedTheme$() }}">
+      {{ "COFFEELIST.DIALOG-PAY_SAVE" | translate }}
+    </h2>
+    <p class="text {{ themeService.storedTheme$() }}">
+      {{ "COFFEELIST.DIALOG-PAY_TEXT" | translate }}
+    </p>
+  </div>
+  <div class="footer">
+    <button mat-raised-button mat-dialog-close>
+      {{ "MANAGEROOMS.CANCEL" | translate }}
+    </button>
+    <button
+      [disabled]="unpaidCoffee.length === 0"
+      mat-dialog-close
+      mat-raised-button
+      color="primary"
+      (click)="SubmitPayment()"
+    >
+      {{ "MAP.SAVE" | translate }}
+    </button>
+  </div>
+</div>

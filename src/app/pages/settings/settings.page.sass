@@ -1,0 +1,264 @@
+@import 'src/styles/variables.sass'
+
+.home
+  min-height: (calc( 100vh - 200px )) !important
+  height: 100%
+  display: flex
+  flex-direction: column
+  @media (min-width:450px)
+    min-height: 800px
+
+.header
+  background-color: $ohooo-color-pink
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 128px
+  width: 100%
+  position: sticky
+  top: 0px
+  left: 0px
+
+h1
+  font-family: 'Bungee'
+  font-size: 32px
+  color: white
+  margin: 0px
+
+.userinfos
+  margin-top: 30px
+  margin-bottom: 22px
+  text-align: center
+  .displayname
+    font-size: 24px
+    font-weight: bold
+    margin-top: 1%
+    .email
+      font-size: 18px
+
+.settings
+
+  display: flex
+  justify-content: center
+  width: 90%
+  display: flex
+  flex-flow: column
+  margin-left: 5%
+  text-align: left
+
+.setting
+  // width: 33%
+
+::ng-deep .mat-mdc-select-value
+  color: black
+  font-size: 18px
+h2
+  font-size: 18px
+  margin: 0px
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper
+  display: none
+
+::ng-deep .mat-mdc-select-value-text.theme-dark
+  color: white
+
+.border
+  margin-top: 5%
+  border: 1px
+  border-style: none none solid none
+
+.signOut
+  margin-top: 5%
+  margin-bottom: 50px
+  margin-left: auto
+  margin-right: auto
+  display: flex
+.signOut.theme-dark
+  color: white
+  background-color: #595954
+
+#darkmode
+  display: flex
+  gap: 5px
+  padding-top: 20px
+  padding-bottom: 20px
+mat-label
+  font-size: 18px
+.settingSection
+  border-bottom: solid 1px black
+  padding-bottom: 10px
+  // padding-left: 20px
+.settingSection.theme-dark
+  border-bottom: solid 1px white
+.userProfil
+  width: 10%
+  min-width: 130px
+  height: auto
+  border-radius: 50%
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.273)
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled)
+  background-color: transparent !important
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before
+  border-bottom: none
+::ng-deep .mdc-text-field
+  padding: 0px !important
+
+.email.theme-dark
+  color: white
+
+.displayname.theme-dark
+  color: white
+.theme-dark
+  color: white
+.icons
+  background-color: transparent
+  border: none
+  width: 50px
+  height: auto
+
+.coffee.theme-dark
+  // width: 100%
+  // min-width: 200px
+  // height: 35px
+  // display: flex
+  // justify-content: space-between
+  // font-size: 20px
+  // border: none
+  // background-color: #595954
+  // border-radius: 40px
+  // box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.273)
+
+.coffee
+  // max-width: 351px
+  // width: 100%
+  // height: 35px
+  // display: flex
+  // justify-content: space-between
+  // align-items: center
+  // align-self: center
+  // font-size: 20px
+  // border-radius: 40px
+  // background-color: #ffff
+.inputfield
+  display: flex
+  height: 51px
+  justify-content: center
+  align-items: center
+  width: 100%
+  position: relative
+  left: -97px
+.button
+  border-radius: 8px
+  background-color: #ffff
+  height: 40px
+  width: 50px
+  font-size: 25px
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-left: 10px
+  cursor: pointer
+  border: none
+.number
+  border-radius: 8px
+  background-color: #ffff
+
+  height: 40px
+  width: 100px
+  font-size: 25px
+  display: flex
+  justify-content: center
+  align-items: center
+.number.theme-dark
+  background-color: #595954
+.button.theme-dark
+  background-color: #595954
+
+.coffeeHeader
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: 51px
+.coffeeHeader.theme-dark
+  color: white
+
+.coffeeContainer
+  width: 100%
+  height: 80px
+  border-top: solid 1px black
+  border-bottom: solid 1px black
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  align-content: stretch
+  width: 100%
+  justify-content: space-evenly
+  margin-top: 10px
+  margin-bottom: 10px
+
+.coffeeContainer.theme-dark
+  border-bottom: solid 1px white
+  border-top: solid 1px white
+
+.editButton
+  width: 50px
+  align-self: flex-end
+  justify-self: flex-start
+
+@media (min-width: 680px)
+  .inputfield
+    // margin-top: -61px
+
+p
+  margin: 0px
+  padding: 0px
+
+@media (max-width: 400px)
+  .inputfield
+    position: relative
+    left: 0px
+    width: auto
+
+.selectedValue.theme-dark
+  color: white
+
+.selectedValue.theme-light
+  color: black
+::ng-deep.mat-mdc-select-value-text
+  white-space: nowrap
+  padding-left: 10px
+::ng-deep .mat-mdc-select-arrow
+  padding-right: 15px
+
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading
+    border-color: black !important
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch
+    border-color: black !important
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing
+    border-color: black !important
+
+.theme-dark
+  ::ng-deep .mat-mdc-select-value
+    color: white
+  ::ng-deep .mat-mdc-select-arrow
+    color: white
+  ::ng-deep mat-label
+    color: white
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading
+    border-color: white !important
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch
+    border-color: white !important
+  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing
+    border-color: white !important
+  ::ng-deep .cdk-overlay-pane:not(.mat-mdc-select-panel-above) .mdc-menu-surface.mat-mdc-select-panel
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+    transform-origin: top center
+    background-color: red
+  ::ng-deep .mat-mdc-select-value-text
+    white-space: nowrap
+    padding-left: 10px
+  ::ng-deep .mat-mdc-select-arrow
+    padding-right: 15px
+  ::ng-deep .mdc-text-field--outlined .mdc-text-field__input
+    padding-left: 10px

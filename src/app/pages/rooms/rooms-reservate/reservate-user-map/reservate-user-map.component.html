@@ -1,0 +1,42 @@
+<div class="desks-container">
+  <div class="image-wrapper">
+    <img #map (load)="onImageLoad()" [src]="mapSrc" alt="Room map" [class.partially-gray]="!loading"/>
+    <div *ngIf="imgLoaded && loading; else loadingTemplate">
+      <div
+      class="desk"
+      [ngClass]="getDeskColorClass(object.uuid)"
+      *ngFor="let object of desks"
+      key="object.uuid"
+      [style.left.px]="object.x"
+      [style.top.px]="object.y"
+    >
+      <ng-container *ngIf="occupiedDesks.includes(object.uuid); else freeDesk">
+        <div
+          class="occupiedDesk-child"
+          [style.background-image]="
+            'url(' + occupiedDesksWithName[object.uuid]?.photoURL + ')'
+          "
+          matTooltip="{{ occupiedDesksWithName[object.uuid]?.displayName }}"
+        ></div>
+  
+      </ng-container>
+      <ng-template #freeDesk>
+        <div
+          class="bookDesk"
+          (click)="
+            deskService.isDeskSelected(object.uuid)
+              ? deskService.deleteDeskUuid(object.uuid)
+              : deskService.setDeskUuid(object.uuid)
+          "
+        ></div>
+      </ng-template>
+    </div>
+    </div>
+
+  </div>
+  <ng-template #loadingTemplate>
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,94 @@
+.root
+  border-radius: 8px
+  height: 120px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  background-color: #ffffff
+.root.theme-dark
+  background-color: #474743
+  border-radius: 8px
+
+.timePickerWrapper
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  height: 100px
+
+.timeInstruction
+  color: black
+  width: 116px
+  margin-bottom: -5px
+
+
+.timePickers
+  width: 110px
+  height: 64px
+  border: solid 1px #0DC9CB
+  border-radius: 7px
+  text-align: center
+  font-size: 50px
+
+.timePickers.theme-dark
+  background-color: #2a2b2b
+  color: white
+
+.recurring
+  margin-left: 1%
+
+.expansion-panel.theme-dark
+  background-color: #2a2b2b
+
+.matFormField
+  width: 100%
+
+.datePicker
+  width: 100%
+  height: auto
+
+.timePoints
+  font-size: 50px
+
+.hypen
+  margin-left: 15px
+  margin-right: 15px
+
+.timePoints.theme-dark
+  color: white
+
+::ng-deep .mat-accordion .mat-expansion-panel:last-of-type
+  border-top: solid 1px black
+  border-bottom-right-radius: 7px !important
+  border-bottom-left-radius: 7px !important
+
+.theme-dark
+  color: white
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled)
+  background-color: transparent !important
+
+.timeInput
+  display: flex
+  width: 100%
+  justify-content: center
+  align-items: center
+  margin-bottom: 10px
+.text
+  width: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+#noText
+  width: 46px
+
+.meetingStyling
+  @media (max-width:640px)
+    height: 160px !important
+    .timeInput
+      display: contents
+    .hypen
+      display: none
+    
+
+

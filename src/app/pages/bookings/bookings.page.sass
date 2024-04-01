@@ -1,0 +1,230 @@
+.title
+  display: flex
+  justify-content: space-between
+.infosHeader
+  display: flex
+  margin-bottom: 8px
+  align-items: center
+#desks
+  margin-bottom: 0px
+.infos
+  display: flex
+  flex-direction: column
+button
+  cursor: pointer
+.header
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 128px
+  width: 100%
+  position: sticky
+  top: 0px
+  left: 0px
+  background-color: #E4AC1A
+  z-index: 10
+.rules
+  display: flex
+  justify-content: center
+.bookingTypeTitle
+  display: flex
+  justify-content: center
+  margin: 0px
+
+.bookingTypeTitle.theme-dark
+  color: white
+h1
+  font-family: 'Bungee'
+  font-size: 32px
+  color: white
+  margin: 0px
+.home
+  min-height: (calc( 100vh - 70px ))
+  height: 100%
+  display: flex
+  flex-direction: column
+
+.reservations
+  margin-bottom: 100px
+  width: 100%
+
+.datepicker
+  margin-top: 50px
+  width: 100%
+  height: auto
+  margin-bottom: 35px
+
+::ng-deep .mat-content
+  display: flex
+  flex-direction: column !important
+::ng-deep .mat-mdc-card
+  box-shadow: none
+
+h2
+  font-family: 'Bungee'
+  margin-left: 10px
+  margin-top: 10px
+  margin-bottom: 0px
+
+h3
+  margin: 0px
+  font-size: 23px
+  color: #0dc9cb
+h4
+  margin: 0px
+  color: #0dc9cb
+
+.accordeon
+  max-width: 1000px
+  border-radius: 8px
+  margin-bottom: 15px
+  &:last-child
+    margin-bottom: 50px
+
+.accordeon.theme-dark
+  background-color: #595954
+
+::ng-deep .mat-expansion-panel-header-title
+  height: 25%
+  width: 100% !important
+  display: flex !important
+  justify-content: space-between
+  align-items: flex-start
+
+::ng-deep .mat-expansion-panel-body
+  padding-top: 0px !important
+  padding-right: 0px !important
+  padding-bottom: 0px !important
+  padding-left: 0px !important
+
+.icons
+  cursor: pointer
+  background-color: transparent
+  border: none
+  border-radius: 50%
+  padding-top: 5px
+
+.icons:hover
+  background-color: #8b70d459
+  color: #d03838
+
+.iconSettings
+  cursor: pointer
+  background-color: transparent
+  border: none
+  border-radius: 40%
+.iconSettings.theme-dark
+  color: white
+.iconSettings:hover
+  background-color: #8b70d459
+  color: #8A70D4
+
+.mat-expansion-panel-header
+  height: 150px
+  width: 100%
+  display: flex
+  flex-direction: row
+  padding: 0px
+
+.mat-expansion-panel-header-description
+  height: 50%
+  display: flex !important
+  align-items: flex-end
+
+.availability
+  display: flex
+  height: 70px
+  width: 150px
+  margin-bottom: 0px
+  margin-right: 20px
+  margin-left: 10px
+
+.today
+  display: flex
+  align-items: center
+  align-self: center
+  text-align: center
+  height: 100%
+  width: 100%
+  color: #0dc9cb !important
+  border: solid 2px #0dc9cb
+  border-radius: 7px
+  background-color: #ffff
+  margin: 0
+.today.theme-dark
+  background-color: #595955
+.notToday
+  display: flex
+  align-items: center
+  align-self: center
+  text-align: center
+  height: 100%
+  width: 100%
+  color: #b4b6b9 !important
+  border: solid 2px #b4b6b9
+  border-radius: 7px
+  background-color: #ffff
+  margin: 0
+  h3
+    color: #b4b6b9
+.notToday.theme-dark
+  background-color: #595955
+
+hr
+  left: 0px
+  top: 0px
+  width: 85%
+  margin-left: 7.5%
+  margin-right: 7.5%
+  border-top: solid 1px black
+.rulesInfos
+  width: 100%
+  height: 50%
+  display: flex !important
+  margin-left: 20px
+  flex-direction: wrap
+  flex-wrap: wrap
+.availabilityRules
+  display: flex
+  height: 90%
+  width: 70px
+  margin-bottom: 3px
+  margin-right: 50px
+  margin-left: 0px
+.titleAcc.theme-dark
+  color: white
+
+.headerAccRulesTop
+  width: 100%
+  margin-left: -20px
+  height: auto
+  display: flex
+  justify-content: flex-end
+
+::ng-deep .mat-expansion-indicator
+  position: absolute
+  bottom: 0px
+  left: 50%
+.deleteIcon.theme-dark
+  color: white
+#expandDeleteButton
+  margin-right: auto
+.theme-dark
+  color: white
+.wrapper
+  display: flex
+
+@media (max-width:450px)
+  .bookingTypeTitle
+    font-size: 18px
+.reservationsList
+  display: flex
+  flex-direction: column
+  padding: 0 7.5%
+  margin-top: 10px
+.roomSelector
+  margin: 0 auto
+.spinner-container
+  display: flex
+  justify-content: center
+  align-items: center

@@ -1,0 +1,146 @@
+<div class="reservations">
+  <div class="header">
+    <h1>{{ roomService.selectedRoom.name }}</h1>
+  </div>
+  <ng-container *ngIf="!isPassedDataDefined(); else elseRedirectBlock">
+    <div class="buttonWrapper">
+      <button
+        class="button_back  {{ themeService.storedTheme$() }}"
+        mat-icon-button
+        routerLink="/"
+        [ngClass]="{ button_back_meeting: roomType === 'meeting' }"
+      >
+        <mat-icon class=" {{ themeService.storedTheme$() }}">arrow_back</mat-icon>
+      </button>
+    </div>
+  </ng-container>
+  <ng-template #elseRedirectBlock>
+    <div class="buttonWrapper">
+      <button
+        class="button_back  {{ themeService.storedTheme$() }}"
+        mat-icon-button
+        routerLink="/myBookings"
+      >
+        <mat-icon class=" {{ themeService.storedTheme$() }}">arrow_back</mat-icon>
+      </button>
+    </div>
+  </ng-template>
+
+  <div class="datepicker" *ngIf="roomType !== 'meeting'">
+    <app-date-picker
+      (dateClickedDate)="handleDate($event)"
+      (dateClicked)="handleDateClicked($event)"
+      [date]="reservationDate"
+    ></app-date-picker>
+  </div>
+  <div class="datepicker" *ngIf="roomType == 'meeting'">
+    <app-reservate-hours-overview
+      [startHour]="startHour"
+      [startMinute]="startMinute"
+      [endHour]="endHour"
+      [endMinute]="endMinute"
+      [edit]="isPassedDataDefined()"
+      [date]="reservationDate"
+      (dateClickedDate)="handleDate($event)"
+      (startTimeClicked)="handleMeetingStartHourClicked($event)"
+      (endTimeClicked)="handleMeetingEndHourClicked($event)"
+    >
+    </app-reservate-hours-overview>
+  </div>
+
+
+  <div class="availability" *ngIf="roomType !== 'meeting'">
+    <h2 class="placesTitle {{ themeService.storedTheme$() }}">
+      {{ "TAKERESERVATION.CAPACITY" | translate }}{{ totalCapacity }}
+    </h2>
+    <div class="chartWrapper {{ themeService.storedTheme$() }}">
+      <div class="background">
+        <div
+          class="places {{ themeService.storedTheme$() }}"
+          *ngFor="let amount of chartLines"
+        ></div>
+      </div>
+      <div class="chart">
+        <div
+          *ngFor="let value of freePlaces"
+          class="bar"
+          [style.height.px]="value * calculateBarHeight()"
+          [ngStyle]="getBarStyle(value)"
+          [ngClass]="calculateBarHeightNumbers(value)"
+        >
+          <p class="placesNumbers {{ themeService.storedTheme$() }}" *ngIf="value > 0">
+            {{ value }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="timeContainer">
+      <div class="timeWrapper">
+        <div class="time {{ themeService.storedTheme$() }}" *ngFor="let time of times">
+          {{ time }}h
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hourpicker">
+    <app-hour-picker
+      [quartersEnabled]="roomType == 'meeting'"
+      [passedEndHour]="this.endHour"
+      [passedStartHour]="this.startHour"
+      [passedEndMinute]="this.endMinute"
+      [passedStartMinute]="this.startMinute"
+      [numberOfReservations]="deskService.numberOfReservations"
+      [type]="roomType"
+      (emitHours)="handleHours($event)"
+      (emitPanelState)="handlePanelState($event)"
+      (emitEndDate)="handleEndDate($event)"
+    >
+    </app-hour-picker>
+  </div>
+
+  <app-reservate-user-map
+    *ngIf="roomService?.selectedRoom?.type !== 'meeting'"
+    [startHour]="startHour"
+    [endHour]="endHour"
+    [edit]="isPassedDataDefined()"
+    [selectedDate]="reservationDate"
+  ></app-reservate-user-map>
+  <div class="book">
+    <div class="book-content-wrapper">
+      <p class="cant-book-text" *ngIf="isReservationDateInvalid()">
+        {{ "TAKERESERVATION.CANT_BOOK_AHEAD" | translate }}
+      </p>
+      <ng-container *ngIf="isPassedDataDefined(); else elseBlock">
+        <div class="edit-buttons">
+          <button
+            class="edit-buttons-cancel"
+            [disabled]="isReservationDateInvalid()"
+            mat-raised-button
+            routerLink="/myBookings"
+          >
+            {{ "MANAGEROOMS.CANCEL" | translate }}
+          </button>
+          <button
+            [disabled]="isReservationDateInvalid()"
+            (click)="doReservation()"
+            mat-button
+            id="bookButton"
+          >
+            {{ "MAP.SAVE" | translate }}
+          </button>
+        </div>
+      </ng-container>
+      <ng-template #elseBlock>
+        <button
+          [disabled]="isReservationDateInvalid()"
+          (click)="doReservation()"
+          mat-raised-button
+          id="bookButton"
+        >
+          {{ "TAKERESERVATION.BOOKBUTTON" | translate }}
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</div>

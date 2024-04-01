@@ -1,0 +1,50 @@
+<div class="calendar {{ themeService.storedTheme$() }}">
+  <div class="top">
+    <div class="{{ themeService.storedTheme$() }}">
+      <h2 class="{{ themeService.storedTheme$() }}">
+        {{ currentYear | getSelectedDate: monthIndex: selectedDay }}       </h2>
+    </div>
+    <div>
+      <button class="buttonMonth" (click)="setPreviousMonth()">
+        <mat-icon class="{{ themeService.storedTheme$() }}">keyboard_arrow_left</mat-icon>
+      </button>
+      <button class="buttonMonth" (click)="setNextMonth()">
+        <mat-icon class="{{ themeService.storedTheme$() }}">keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+  <hr class="hr {{ themeService.storedTheme$() }}" />
+  <div>
+    <div class="buttons">
+      <h5 class="{{ themeService.storedTheme$() }}">
+        {{ currentMonth[monthIndex] }} {{ currentYear }}
+      </h5>
+    </div>
+    <table>
+      <tr>
+        <th *ngFor="let day of daysOfWeek" class="{{ themeService.storedTheme$() }}">
+          {{ day }}
+        </th>
+      </tr>
+      <ng-container *ngFor="let row of allDays | splitIntoRows: currentYear: monthIndex">
+        <tr>
+          <td
+            *ngFor="let day of row"
+            [ngClass]="[day === selectedDay && monthChecker === 0 ? 'selectedDay' : '', day | currentDayClass: currentYear: monthIndex]"
+            >
+            <ng-container>
+              <button
+              [disabled]="day | isDateBeforeToday: currentYear: monthIndex"                class="{{ themeService.storedTheme$() }}"
+                class="datesButton"
+                [ngClass]="{ 'disabled-button': !day }"
+                (click)="clickOnDate(day); clearNumberOfReservations()"
+              >
+                {{ day }}
+              </button>
+            </ng-container>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+</div>

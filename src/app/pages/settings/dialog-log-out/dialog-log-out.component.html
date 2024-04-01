@@ -1,0 +1,24 @@
+<div class="logOutContent {{ themeService.storedTheme$() }}">
+  <h1 mat-dialog-title class="{{ themeService.storedTheme$() }}">
+    {{ "SETTINGS.LOGOUTDIALOG" | translate }}
+  </h1>
+  <div class="content">
+    <p class="{{ themeService.storedTheme$() }}">
+      {{ "SETTINGS.LOGOUTDIALOGTEXT" | translate }}
+    </p>
+  </div>
+  <div class="dialogactions" mat-dialog-actions>
+    <button mat-button (click)="closeDialog()" class="cancel">
+      {{ "SETTINGS.LOGOUTDIALOGBUTTON" | translate }}
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      (click)="authService.signOut()"
+      (click)="closeDialog()"
+    >
+      {{ "SETTINGS.BUTTON" | translate }}
+    </button>
+    
+  </div>
+</div>

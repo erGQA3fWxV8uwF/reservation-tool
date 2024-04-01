@@ -1,0 +1,82 @@
+<div class="home">
+  <div class="header">
+    <h1>{{ "MYBOOKINGS.MYBOOKINGS" | translate }}</h1>
+  </div>
+  <div class="datepicker">
+    <app-bookings-date-picker></app-bookings-date-picker>
+  </div>
+
+  <div>
+    <h2 class="bookingTypeTitle {{ themeService.storedTheme$() }}">
+      {{ "MYBOOKINGS.SINGLE_RESERVATION" | translate }}
+    </h2>
+    <hr />
+  </div>
+  <div class="reservationsList">
+    <mat-card *ngFor="let event of eventData; let i = index" class="accordeon {{ themeService.storedTheme$() }}">
+      <div class="title">
+        <h2 class="titleAcc {{ themeService.storedTheme$() }}">
+          {{ getRoomName(event.room) }}
+        </h2>
+        <div>
+          <button *ngIf="event.type !== 'meeting'" [routerLink]="[
+              '/bookings/map',
+              event.room,
+              event.id,
+              event.date.seconds
+            ]" class="icons">
+            <mat-icon class="deleteIcon {{ themeService.storedTheme$() }}">explore</mat-icon>
+          </button>
+          <button mat-icon-button (click)="editReservation(event.reservations[0])">
+            <mat-icon class=" {{ themeService.storedTheme$() }}">edit</mat-icon>
+          </button>
+
+          <button (click)="deleteReservations(event.reservations[0])" class="icons">
+            <mat-icon class="deleteIcon {{ themeService.storedTheme$() }}">delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="infosHeader">
+        <div class="availability ">
+          <div class="today {{ themeService.storedTheme$() }}" [ngClass]="colorCurrentReservation(event.date.seconds)">
+            <h3>{{ getDayOfWeek(event.date.seconds) }}</h3>
+
+          </div>
+        </div>
+        <div class="infos">
+          <p class="{{ themeService.storedTheme$() }}">
+            <strong class="{{ themeService.storedTheme$() }}">{{ "MYBOOKINGS.TIME" | translate }}:</strong>
+            {{ formateTime(event.startTime) }} -
+            {{ formateTime(event.endTime) }}
+          </p>
+          <p class="{{ themeService.storedTheme$() }}" *ngIf="event.type !== 'meeting'">
+            <strong class="{{ themeService.storedTheme$() }}">{{
+              "TAKERESERVATION.PLACES" | translate
+              }}</strong>
+            {{ this.eventData[i].reservations[0]?.desks?.length }}
+          </p>
+          <p id="desks" class="{{ themeService.storedTheme$() }}" *ngIf="event.type !== 'meeting'">
+            <strong class="{{ themeService.storedTheme$() }}">
+              {{
+              this.eventData[0].reservations[0]?.desks?.length > 1
+              ? ('MYBOOKINGS.TABLES' | translate)
+              : ('MYBOOKINGS.TABLE' | translate)
+              }}
+            </strong>
+            <ng-container *ngFor="let desk of event.reservations[0]?.desks; let last = last">
+              {{ getSimpleIdForDesk(desk) }}
+              <span *ngIf="event.reservations[0].desks.length > 1 && !last">
+                /
+              </span>
+            </ng-container>
+          </p>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+<ng-template #loadingTemplate>
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</div>

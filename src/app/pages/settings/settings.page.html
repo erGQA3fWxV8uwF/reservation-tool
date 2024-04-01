@@ -1,0 +1,71 @@
+<div class="header">
+  <h1>{{ "SETTINGS.TITLE" | translate }}</h1>
+</div>
+<div class="home">
+  <div class="body">
+    <div class="userinfos">
+      <img src="{{ userData['photoURL'] }}" alt="" class="userProfil" />
+      <p class="displayname {{ themeService.storedTheme$() }}">{{ userData["displayName"] }}</p>
+      <p class="email {{ themeService.storedTheme$() }}">{{ userData["email"] }}</p>
+    </div>
+    <div class="settings">
+      <div class="settingSection {{ themeService.storedTheme$() }}">
+        <div class="coffeeContainer {{ themeService.storedTheme$() }}">
+          <div class="coffeeHeader {{ themeService.storedTheme$() }}">
+            <h2 id="coffeeHeader" class="{{ themeService.storedTheme$() }}">
+              {{ "SETTINGS.COFFEELIST" | translate }}
+            </h2>
+          </div>
+          <div class="inputfield">
+            <div class="coffee {{ themeService.storedTheme$() }}">
+              <div class="number {{ themeService.storedTheme$() }}">
+                <p class="{{ themeService.storedTheme$() }}">{{ unpaidCoffee }}</p>
+              </div>
+            </div>
+            <button class="button {{ themeService.storedTheme$() }}" (click)="addCoffee()">
+              <mat-icon class="{{ themeService.storedTheme$() }}">add</mat-icon>
+            </button>
+          </div>
+        </div>
+        <mat-form-field
+          appearance="outline"
+          class="setting"
+          color="primary"
+          [ngClass]="themeService.storedTheme$()"
+        >
+          <mat-label>{{ "SETTINGS.INPUT_LABEL" | translate }}</mat-label>
+          <mat-select
+            [(ngModel)]="selectedValue"
+            (selectionChange)="changeLanguage()"
+            class="language {{ themeService.storedTheme$() }}"
+          >
+            <mat-option
+              *ngFor="let language of languages"
+              [value]="language.value"
+              [ngClass]="
+               themeService.storedTheme$() "
+            >
+              {{ language.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="settingSection {{ themeService.storedTheme$() }}" id="darkmode">
+        <mat-label class="{{ themeService.storedTheme$() }}">Darkmode</mat-label>
+        <mat-slide-toggle
+          [(ngModel)]="isDark"
+          mat-button
+          color="primary"
+          (click)="setTheme()"
+        ></mat-slide-toggle>
+      </div>
+    </div>
+    <button
+      mat-raised-button
+      class="signOut {{ themeService.storedTheme$() }}"
+      (click)="openDialog()"
+    >
+      {{ "SETTINGS.BUTTON" | translate }}
+    </button>
+  </div>
+</div>

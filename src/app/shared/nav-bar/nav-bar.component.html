@@ -1,0 +1,22 @@
+<div class="navBar {{ themeService.storedTheme$() }}" [ngClass]="{ 'disabled-button': !authService.isLoggedIn }">
+  <a routerLink="/rooms">
+    <button class="navigation" [disabled]="!authService.isLoggedIn">
+      <mat-icon class="icons {{ themeService.storedTheme$() }}">home</mat-icon>
+    </button>
+  </a>
+  <a routerLink="/bookings">
+    <button class="navigation" [disabled]="!authService.isLoggedIn">
+      <mat-icon class="icons {{ themeService.storedTheme$() }}">bookmark</mat-icon>
+    </button>
+  </a>
+  <a routerLink="/admin" *ngIf="authService.userRole === 'admin' || authService.userRole === 'waiter'">
+    <button class="navigation" [disabled]="!authService.isLoggedIn">
+      <mat-icon class="icons {{ themeService.storedTheme$() }}">admin_panel_settings</mat-icon>
+    </button>
+  </a>
+  <a routerLink="/settings">
+    <button class="navigation" [disabled]="!authService.isLoggedIn">
+      <mat-icon class="icons {{ themeService.storedTheme$() }}">account_circle</mat-icon>
+    </button>
+  </a>
+</div>

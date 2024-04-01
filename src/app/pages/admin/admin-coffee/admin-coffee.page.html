@@ -1,0 +1,155 @@
+<div class="header">
+  <h1>Admin</h1>
+</div>
+<div class="buttonWrapper">
+  <button class="back" mat-icon-button [routerLink]="['/admin']">
+    <mat-icon class=" {{ themeService.storedTheme$() }}">arrow_back</mat-icon>
+  </button>
+</div>
+<div class="root">
+  <div class="list">
+    <table mat-table [dataSource]="coffeeList" class="mat-elevation-z8">
+      <ng-container matColumnDef="Profil">
+        <th mat-header-cell *matHeaderCellDef>Profil</th>
+        <td mat-cell *matCellDef="let dataSource">
+          <img class="profilPicture" src="{{ dataSource.photoURL }}" alt="" />
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Name">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ "COFFEELIST.NAME" | translate }}
+        </th>
+        <td mat-cell *matCellDef="let dataSource">
+          {{ dataSource.displayName }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Mail">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ "COFFEELIST.EMAIL" | translate }}
+        </th>
+        <td mat-cell *matCellDef="let dataSource">{{ dataSource.email }}</td>
+      </ng-container>
+      <ng-container matColumnDef="coffee">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ "COFFEELIST.COFFEE" | translate }}
+        </th>
+        <td mat-cell *matCellDef="let dataSource">
+          {{ dataSource.coffee.length }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Payed">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ "COFFEELIST.PAYED" | translate }}
+        </th>
+        <td mat-cell *matCellDef="let dataSource">
+          <span *ngIf="dataSource.allPaid" class="{{ themeService.storedTheme$() }}">{{
+            "COFFEELIST.YES" | translate
+          }}</span
+          ><span *ngIf="!dataSource.allPaid" class="{{ themeService.storedTheme$() }}">{{
+            "COFFEELIST.NO" | translate
+          }}</span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let dataSource">
+          <span
+            *ngIf="
+              coffeePayementState == 'offen' && dataSource.allPaid == false
+            "
+            class="{{ themeService.storedTheme$() }}"
+            >{{ "COFFEELIST.OPEN" | translate }}
+          </span>
+          <span
+            *ngIf="coffeePayementState == 'bald' && dataSource.allPaid == false"
+            class="warning"
+            >{{ "COFFEELIST.NEEDPAY" | translate }}
+          </span>
+          <span
+            *ngIf="
+              coffeePayementState == 'abgelaufen' && dataSource.allPaid == false
+            "
+            class="expired"
+            >{{ "COFFEELIST.OVER" | translate }}
+          </span>
+          <span *ngIf="dataSource.allPaid == true" class="done"
+            >{{ "COFFEELIST.CLOSED" | translate }}
+          </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="button">
+        <th mat-header-cell *matHeaderCellDef>Button</th>
+        <td mat-cell *matCellDef="let dataSource">
+          <button
+            mat-raised-button
+            (click)="openDialog(dataSource.id)"
+            class="payButton {{ themeService.storedTheme$() }}"
+          >
+            {{ "COFFEELIST.PAY" | translate }}
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <div class="buttonWrapper2">
+    <button
+      class="download {{ themeService.storedTheme$() }}"
+      (click)="downloadPdf()"
+      mat-flat-button
+    >
+      {{ "COFFEELIST.STATISTIC" | translate }} <mat-icon>download</mat-icon>
+    </button>
+  </div>
+
+  <div class="charts" fxLayout="row wrap" fxLayoutAlign="start start">
+    <div
+      class="chart1-wrapper"
+      fxFlex.gt-xs="50%"
+      fxFlex.gt-sm="33%"
+      fxFlex.gt-md="25%"
+    >
+      <ngx-charts-bar-vertical
+        [ngStyle]="themeService.storedTheme$()  | fillWhite"
+        class="chart1"
+        *ngIf="single.length > 0"
+        [results]="single"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel1"
+        [yAxisLabel]="yAxisLabel1"
+      >
+      </ngx-charts-bar-vertical>
+    </div>
+    <div
+      class="chart2-wrapper"
+      fxFlex.gt-xs="50%"
+      fxFlex.gt-sm="33%"
+      fxFlex.gt-md="25%"
+    >
+      <ngx-charts-bar-vertical
+        [ngStyle]="themeService.storedTheme$()  | fillWhite"
+        class="chart2 {{ themeService.storedTheme$() }}"
+        *ngIf="single.length > 0"
+        [results]="single2"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel2"
+        [yAxisLabel]="yAxisLabel2"
+      >
+      </ngx-charts-bar-vertical>
+    </div>
+  </div>
+</div>

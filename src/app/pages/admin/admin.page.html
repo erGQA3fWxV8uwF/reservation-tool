@@ -1,0 +1,43 @@
+<div class="header">
+  <h1>Admin</h1>
+</div>
+<div class="root">
+  <div class="wrapper">
+    <button
+      class="buttons {{ themeService.storedTheme$() }}"
+      mat-button
+      routerLink='coffees'
+      >
+      {{ "ADMINHUB.COFFEELIST" | translate }}<mat-icon>coffee</mat-icon>
+    </button>
+    
+    <button
+    class="buttons {{ themeService.storedTheme$() }}"
+    mat-button
+    routerLink='rooms'
+    *ngIf="authService.userRole === 'admin'"
+    >
+    {{ "ADMINHUB.ROOMMANAGEMENT" | translate
+  }}<mat-icon>location_on</mat-icon>
+</button>
+
+<button
+class="buttons {{ themeService.storedTheme$() }}"
+mat-button
+routerLink='user-management'
+      *ngIf="authService.userRole === 'admin'"
+    >
+      {{ "ADMINHUB.PERMISSIONMANAGEMENT" | translate }}
+      <mat-icon>manage_accounts</mat-icon>
+    </button>
+    <button
+      class="buttons {{ themeService.storedTheme$() }}"
+      mat-button
+      routerLink="reservations"
+      *ngIf="authService.userRole === 'admin'"
+    >
+      {{ "ADMINHUB.RESERVATIONS" | translate }}<mat-icon>list_alt</mat-icon>
+    </button>
+  </div>
+</div>
+

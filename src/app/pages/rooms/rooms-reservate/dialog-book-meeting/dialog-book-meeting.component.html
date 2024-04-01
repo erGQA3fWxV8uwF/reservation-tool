@@ -1,0 +1,32 @@
+<div class="root">
+    
+    <h1 class="header">
+        Meeting erstellen
+    </h1>
+    <div class="body">
+        <div class="body-content">
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="currentDate" [(ngModel)]="reservationDate">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> 
+        
+        <app-hour-picker
+        [quartersEnabled]="reservationType === 'meeting'"
+        [passedEndHour]="this.endHour"
+        [passedStartHour]="this.startHour"
+        [passedEndMinute]="this.endMinute"
+        [passedStartMinute]="this.startMinute"
+        (emitHours)="handleHours($event)"
+  >
+        </app-hour-picker>
+        </div>
+
+    </div>
+    <div class="footer">
+        <button mat-raised-button mat-dialog-close>Cancel</button>
+        <button mat-raised-button color="primary" (click)="bookMeeting()">Book</button>
+    </div>
+</div>

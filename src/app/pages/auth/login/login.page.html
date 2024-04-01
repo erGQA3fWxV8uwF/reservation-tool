@@ -1,0 +1,25 @@
+<div class="home {{ themeService.storedTheme$() }}">
+  <div class="login">
+    <div class="header">
+      <h1>{{ "LOGIN.TITLE" | translate }}</h1>
+    </div>
+    <div class="body">
+      <div>
+        <div class="loginBlock {{ themeService.storedTheme$() }}">
+          <h1 class="loginTitle {{ themeService.storedTheme$() }}">Guten Tag</h1>
+          <h3 class="loginSubtitle {{ themeService.storedTheme$() }}">
+            {{ "LOGIN.LOGINTEXT" | translate }}
+          </h3>
+          <button
+            mat-raised-button
+            (click)="checkLoginStatus()"
+            class="signIn {{ themeService.storedTheme$() }}"
+          >
+            {{ "LOGIN.GOOGLELOGIN" | translate }}
+            <mat-icon>login</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

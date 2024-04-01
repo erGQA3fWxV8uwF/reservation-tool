@@ -1,0 +1,113 @@
+.actualDate.theme-dark
+  color: white
+
+.calendar
+  width: 85%
+  padding-top: 20px
+  margin-left: 7.5%
+  border-radius: 8px
+  background-color: #ffff
+.top
+  margin-bottom: 20px
+  display: flex
+  justify-content: space-between
+.buttonMonth
+  cursor: pointer
+
+.buttonMonth .mat-icon
+  font-size: 32px
+  margin-right: 20px
+
+.calendar.theme-dark
+  background-color: #595954
+  color: white
+
+.buttons
+  display: flex
+  position: relative
+  justify-content: space-between
+
+.hr
+  margin-left: 16px
+  margin-right: 16px
+
+.hr.theme-dark
+
+  color: white
+
+h5
+  margin-left: 20px
+
+h2
+  font-size: 20pt
+  margin-left: 16px
+  margin-bottom: 0px
+
+button
+  height: 30%
+  background-color: transparent
+  border: none
+
+table
+  width: 100%
+  height: 72%
+
+.datesButton
+  height: 3vh
+  width: 3vh
+  display: flex
+  flex-direction: column
+  justify-content: center
+  margin-left: auto
+  margin-right: auto
+  align-items: center
+  position: relative
+
+.datesButton.theme-dark
+  color: white
+
+td
+  text-align: center
+
+.isreservation .datesButton:not(:disabled)::after
+  content: ''
+  display: flex
+  width: 5px
+  height: 5px
+  border-radius: 50%
+  background-color: #E4AC1A
+  justify-content: center
+
+.isreservation
+  .datesButton:not(:disabled)
+    color: #E4AC1A
+
+.disabled-button
+  pointer-events: none
+
+.currentDay
+  .datesButton
+    border: solid 1px #E4AC1A
+    border-radius: 50px
+
+.arrows.theme-dark
+  color: white
+
+.dateSelected
+  .datesButton
+    border: solid 1px #1ac6e4
+    border-radius: 50px
+
+
+.clearDateButton
+  width: 100%
+  display: flex
+  justify-content: end
+  margin-right: 2%
+  button
+    height: 64px
+  .mat-icon
+    color: white
+    font-size: 24px
+  .mat-icon.theme-light
+    color: black

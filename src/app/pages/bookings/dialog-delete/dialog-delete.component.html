@@ -1,0 +1,21 @@
+<div class="dialog {{ themeService.storedTheme$() }}">
+  <div class="header">
+    <h1 class="{{ themeService.storedTheme$() }}">
+      {{ "MYBOOKINGS.DIALOGTITLE" | translate }}
+    </h1>
+  </div>
+  <div>
+    <h2 class="content {{ themeService.storedTheme$() }}">
+      {{ "MYBOOKINGS.DIALOGTEXT" | translate }}
+    </h2>
+  </div>
+  <div class="buttons">
+     <button class="cancel   {{ themeService.storedTheme$() }}" mat-button mat-dialog-close>
+      {{ "MYBOOKINGS.DIALOGBUTTON_NO" | translate }}
+    </button>
+    <button id="warning" mat-button (click)="deleteReservation()">
+      {{ "MYBOOKINGS.DIALOGBUTTON_YES" | translate }}
+    </button>
+   
+  </div>
+</div>
